@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/Stack_Overflow-Logo.wine.svg";
+import message from "../assets/message.svg";
+import trophy from "../assets/trophy.svg";
+import communication from "../assets/communication.svg";
 
 const Navbar = () => {
+  const [avatar, setAvatar] = useState(
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSblcRXfNTMckW97YdX6fgKEVc6ngJ79j0xg&s"
+  );
+
   return (
-    <nav className="flex items-center justify-around w-full">
+    <nav className="fixed flex items-center justify-around w-full">
       {/* Logo Section */}
       <div className="logo flex items-center">
-        <img src={logo} alt="logo" className="h-28" />
+        <img src={logo} alt="logo" className="h-36" />
       </div>
 
       {/* Search Bar Section */}
@@ -44,24 +51,28 @@ const Navbar = () => {
 
       {/* Links Section */}
       <div className="links flex gap-6">
-        <a
-          href="#"
-          className="text-sm text-gray-700 hover:text-blue-500 font-medium"
+        <button>
+          <img src={message} alt="message" className="h-5" />
+        </button>
+
+        <button>
+          <img src={trophy} alt="trophy" className="h-5 ml-3" />
+        </button>
+
+        <button>
+          <img src={communication} alt="communication" className="h-10" />
+        </button>
+
+        <div
+          className="rounded-full overflow-hidden flex items-center justify-center bg-gray-200"
+          style={{ width: "35px", height: "35px" }}
         >
-          Home
-        </a>
-        <a
-          href="#"
-          className="text-sm text-gray-700 hover:text-blue-500 font-medium"
-        >
-          About
-        </a>
-        <a
-          href="#"
-          className="text-sm text-gray-700 hover:text-blue-500 font-medium"
-        >
-          Contact
-        </a>
+          <img
+            src={avatar}
+            alt="avatar"
+            className="object-cover w-full h-full"
+          />
+        </div>
       </div>
     </nav>
   );
